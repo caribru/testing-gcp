@@ -4,7 +4,9 @@ const app = express();
 const PORT = 3000;
 
 app.get('/', (req, res) => {
-    res.send('Hello, World!');
+    var world = process.env.HELLO_RESPONSE || 'World';
+    var response = `Hello, ${world}!`;
+    res.send(response);
 });
 
 app.get('/api/greet', (req, res) => {
